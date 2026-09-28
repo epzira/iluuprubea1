@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>iluu – Demo</title>
+<style>
+:root{--bg:#F1F5F7;--panel:#fff;--ink:#16222B;--mute:#5C6E7A;--line:#D5DEE3;--brand:#0F4C5C;--brand-2:#E2EFF2;--amb:#E9A23B;--amb-2:#FBF0DC;--amb-t:#8A5A0B;--ok:#2E8B57;--bad:#C0473B;--on:#fff;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0E171C;--panel:#16232A;--ink:#E6EEF1;--mute:#93A6B0;--line:#26373F;--brand:#5FB3C6;--brand-2:#173540;--amb-2:#3A2E17;--amb-t:#E9A23B;--on:#0E171C}}
+:root[data-theme="dark"]{--bg:#0E171C;--panel:#16232A;--ink:#E6EEF1;--mute:#93A6B0;--line:#26373F;--brand:#5FB3C6;--brand-2:#173540;--amb-2:#3A2E17;--amb-t:#E9A23B;--on:#0E171C}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 "Source Sans 3","Segoe UI",system-ui,sans-serif}
+h1,h2,h3{font-family:"Fraunces",Georgia,serif;font-weight:600;margin:0;letter-spacing:-.01em}
+.app{display:grid;grid-template-columns:230px 1fr;min-height:100vh;max-width:1200px;margin:0 auto}
+aside{padding:22px 16px;border-right:1px solid var(--line)}
+.logo{font-family:"Fraunces",Georgia,serif;font-size:30px;font-weight:700;color:var(--brand);line-height:1}
+.co{color:var(--mute);font-size:13px;margin:4px 0 16px}
+.roles{display:flex;background:var(--panel);border:1px solid var(--line);border-radius:9px;padding:3px;margin-bottom:16px}
+.roles button{flex:1;border:0;background:none;color:var(--mute);padding:6px;border-radius:6px;font:inherit;font-size:13px;cursor:pointer}
+.roles button[aria-pressed="true"]{background:var(--brand);color:var(--on);font-weight:600}
+nav button{display:block;width:100%;text-align:left;background:none;border:0;color:var(--ink);padding:10px 12px;border-radius:8px;font:inherit;cursor:pointer;margin-bottom:2px}
+nav button[aria-selected="true"]{background:var(--brand-2);color:var(--brand);font-weight:600}
+button:focus-visible,input:focus-visible{outline:2px solid var(--amb);outline-offset:2px}
+.me{margin-top:22px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-size:13px}
+.me b{display:block;font-size:14px}
+.tag{display:inline-block;background:var(--amb-2);color:var(--amb-t);border-radius:5px;padding:1px 7px;font-size:12px;margin-top:4px}
+main{padding:26px 28px;min-width:0}
+.top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:18px}
+.top p{margin:0;color:var(--mute)}
+.view{display:none}.view.on{display:block}
+.chat{background:var(--panel);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;height:min(580px,72vh)}
+.log{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
+.m{max-width:82%;padding:10px 14px;border-radius:14px}
+.u{align-self:flex-end;background:var(--brand);color:var(--on);border-bottom-right-radius:4px}
+.a{align-self:flex-start;background:var(--brand-2);border-bottom-left-radius:4px}
+.a small{display:block;color:var(--mute);margin-top:6px;font-size:12px}
+.chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 10px}
+.chip{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:20px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
+.chip:hover{border-color:var(--brand)}
+.in{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
+.in input{flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
+.send{background:var(--amb);color:#2A1C00;border:0;border-radius:8px;padding:0 18px;font:inherit;font-weight:600;cursor:pointer}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
+.card h3{font-size:17px;margin-bottom:4px}
+.card p{margin:4px 0 10px;color:var(--mute);font-size:14px}
+.bar{height:6px;background:var(--line);border-radius:4px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--brand)}
+.big{font-family:"Fraunces",Georgia,serif;font-size:38px;color:var(--brand);line-height:1}
+.row{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
+.row:first-of-type{border-top:0}
+.row div{flex:1;min-width:0}.row b{display:block}.row span{color:var(--mute);font-size:13px}
+.sw{position:relative;width:40px;height:22px;flex:none}
+.sw input{opacity:0;position:absolute;inset:0;margin:0;cursor:pointer;z-index:1}
+.sw i{position:absolute;inset:0;background:var(--line);border-radius:12px;transition:.2s}
+.sw i:after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.2s}
+.sw input:checked+i{background:var(--ok)}.sw input:checked+i:after{left:21px}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.li{padding:9px 0;border-top:1px solid var(--line);font-size:14px}.li:first-of-type{border-top:0}
+.li em{font-style:normal;color:var(--mute);font-size:12px;display:block}
+.pill{display:inline-block;border-radius:10px;padding:1px 9px;font-size:12px;font-weight:600}
+.p-ok{background:#DDF0E4;color:#1C6B40}.p-w{background:var(--amb-2);color:var(--amb-t)}.p-b{background:#F6DCD8;color:#9A2F24}
+.tbl{width:100%;border-collapse:collapse;font-size:14px}
+.tbl td,.tbl th{text-align:left;padding:10px 8px;border-top:1px solid var(--line);vertical-align:middle}
+.tbl th{border-top:0;color:var(--mute);font-weight:500;font-size:12px}
+.scroll{overflow-x:auto}
+.note{font-size:13px;color:var(--mute);margin-top:12px}
+@media (max-width:760px){.app{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);padding:14px}nav{display:flex;gap:4px;overflow-x:auto}nav button{white-space:nowrap;width:auto}.me{display:none}main{padding:18px 14px}.two{grid-template-columns:1fr}.m{max-width:94%}}
+</style>
+</head>
+<body>
+<div class="app">
+<aside>
+  <div class="logo">iluu</div>
+  <div class="co">Distribuidora Norte</div>
+  <div class="roles"><button data-r="emp" aria-pressed="true">Empleado</button><button data-r="jefe" aria-pressed="false">Jefe</button></div>
+  <nav id="nav"></nav>
+  <div class="me" id="me"></div>
+</aside>
+<main>
+
+<!-- EMPLEADO -->
+<section class="view" id="asist">
+  <div class="top"><h1>Hola, Ana</h1><p>Tu asistente conoce cómo se trabaja en este puesto.</p></div>
+  <div class="chat">
+    <div class="log"><div class="m a">Hola Ana, aprendí de 4 años de correos, WhatsApp de trabajo, reuniones y documentos de este puesto. ¿En qué te ayudo?</div></div>
+    <div class="chips" data-set="emp">
+      <button class="chip">¿A quién envío una orden mayor a $50,000?</button>
+      <button class="chip">¿Qué le prometió Marcos a FríoExpress?</button>
+      <button class="chip">Necesito un contacto de transporte refrigerado</button>
+      <button class="chip">Tengo una idea para mejorar</button>
+    </div>
+    <div class="in"><input placeholder="Escribe tu pregunta…" aria-label="Pregunta"><button class="send">Enviar</button></div>
+  </div>
+</section>
+
+<section class="view" id="conex">
+  <div class="top"><h1>Mis conexiones</h1><p>Tú decides qué se conecta. Solo se usa información de trabajo.</p></div>
+  <div class="card" style="margin-bottom:14px">
+    <div class="row"><div><b>Gmail</b><span>Correos laborales · sincronizado hace 2 min</span></div><label class="sw"><input type="checkbox" checked aria-label="Gmail"><i></i></label></div>
+    <div class="row"><div><b>Google Calendar</b><span>Reuniones y participantes</span></div><label class="sw"><input type="checkbox" checked aria-label="Calendar"><i></i></label></div>
+    <div class="row"><div><b>Google Drive</b><span>Documentos, hojas y presentaciones del equipo</span></div><label class="sw"><input type="checkbox" checked aria-label="Drive"><i></i></label></div>
+    <div class="row"><div><b>WhatsApp de trabajo</b><span>Solo chats con proveedores y equipo · sin chats personales</span></div><label class="sw"><input type="checkbox" checked aria-label="WhatsApp"><i></i></label></div>
+    <div class="row"><div><b>Outlook y Slack</b><span>Disponibles para conectar</span></div><label class="sw"><input type="checkbox" aria-label="Outlook y Slack"><i></i></label></div>
+  </div>
+  <div class="card">
+    <h3>iluu para escritorio</h3>
+    <p>Una app pequeña siempre abierta en tu computadora. Registra qué programas, documentos y sistemas usas para entender cómo haces tu trabajo realmente. Puedes pausarla cuando quieras.</p>
+    <div class="row" style="border:0;padding-bottom:0"><div><b>Activa · Windows</b><span>Última captura hace 1 min · 38 flujos detectados esta semana</span></div><label class="sw"><input type="checkbox" checked aria-label="App de escritorio"><i></i></label></div>
+  </div>
+</section>
+
+<section class="view" id="conoc">
+  <div class="top"><h1>Conocimiento del puesto</h1><p>Lo que está escrito y lo que solo se sabe haciéndolo</p></div>
+  <div class="two">
+    <div class="card"><h3>Explícito</h3><p>Está documentado o se puede leer.</p>
+      <div class="li">Política de aprobación de compras<em>Drive · actualizada en 2025</em></div>
+      <div class="li">Contratos vigentes con 18 proveedores<em>Drive y Gmail</em></div>
+      <div class="li">Calendario de cierre de mes<em>Calendar</em></div>
+      <div class="li">Formato de orden de compra<em>Drive</em></div>
+    </div>
+    <div class="card"><h3>Tácito</h3><p>Nadie lo escribió. iluu lo dedujo de cómo trabajaba Marcos.</p>
+      <div class="li">Con FríoExpress se pide confirmación por WhatsApp un día antes, si no, se atrasa<em>Patrón en 14 entregas</em></div>
+      <div class="li">Finanzas aprueba más rápido si llega la comparativa de 3 cotizaciones<em>Patrón en 60 órdenes</em></div>
+      <div class="li">En diciembre se adelantan pedidos 2 semanas<em>Visto en 3 años seguidos</em></div>
+      <div class="li">Laura responde mejor antes de las 11:00<em>Historial de correos</em></div>
+    </div>
+  </div>
+  <p class="note">Cada dato tácito indica de dónde salió y Ana puede confirmarlo o corregirlo.</p>
+</section>
+
+<!-- JEFE -->
+<section class="view" id="panel">
+  <div class="top"><h1>Panel de la empresa</h1><p>Actualizado hoy 9:12</p></div>
+  <div class="grid" style="margin-bottom:14px">
+    <div class="card"><div class="big">7</div><p>proyectos activos</p></div>
+    <div class="card"><div class="big" style="color:var(--bad)">2</div><p>proyectos en riesgo por retrasos o falta de respuesta</p></div>
+    <div class="card"><div class="big">78%</div><p>del conocimiento clave está documentado</p></div>
+    <div class="card"><div class="big" style="color:var(--amb-t)">3</div><p>personas con conocimiento que nadie más tiene</p></div>
+  </div>
+  <div class="card scroll" style="margin-bottom:14px"><h3 style="margin-bottom:6px">Proyectos</h3>
+    <table class="tbl"><tr><th>Proyecto</th><th>Responsable</th><th>Avance</th><th>Estado</th></tr>
+      <tr><td>Bodega Apodaca</td><td>Ana López</td><td style="min-width:110px"><div class="bar"><i style="width:68%"></i></div></td><td><span class="pill p-w">Atención</span></td></tr>
+      <tr><td>Cambio de proveedor de empaque</td><td>Luis Garza</td><td><div class="bar"><i style="width:35%"></i></div></td><td><span class="pill p-b">En riesgo</span></td></tr>
+      <tr><td>Renovación de flotilla</td><td>Sofía Ríos</td><td><div class="bar"><i style="width:90%"></i></div></td><td><span class="pill p-ok">En tiempo</span></td></tr>
+      <tr><td>Sistema de inventarios</td><td>Diego Cantú</td><td><div class="bar"><i style="width:52%"></i></div></td><td><span class="pill p-ok">En tiempo</span></td></tr>
+    </table>
+  </div>
+  <div class="two">
+    <div class="card"><h3>Riesgo de conocimiento</h3><p>Si estas personas se van, se pierde esto:</p>
+      <div class="li">Diego Cantú<em>Único que sabe configurar el sistema de inventarios</em></div>
+      <div class="li">Sofía Ríos<em>Relación directa con 5 proveedores de flotilla</em></div>
+    </div>
+    <div class="card"><h3>Lo que iluu detectó esta semana</h3><p>Ideas sacadas de la actividad real.</p>
+      <div class="li">4 empleados capturan las mismas órdenes a mano<em>Se puede automatizar · ahorro estimado 9 h/semana</em></div>
+      <div class="li">Las aprobaciones de Finanzas tardan 3 días en promedio<em>Cuello de botella en Compras</em></div>
+    </div>
+  </div>
+</section>
+
+<section class="view" id="agente">
+  <div class="top"><h1>Pregúntale a iluu</h1><p>Responde con correos, WhatsApp, reuniones y documentos.</p></div>
+  <div class="chat">
+    <div class="log"><div class="m a">Hola. Pregúntame por cualquier proyecto, persona o proceso y te explico con lo que hay en la empresa.</div></div>
+    <div class="chips" data-set="jefe">
+      <button class="chip">¿En qué estado está Bodega Apodaca?</button>
+      <button class="chip">¿Por qué está en riesgo el cambio de empaque?</button>
+      <button class="chip">Resumen de la semana de Compras</button>
+    </div>
+    <div class="in"><input placeholder="Pregunta por un proyecto…" aria-label="Pregunta"><button class="send">Enviar</button></div>
+  </div>
+</section>
+
+</main>
+</div>
+<script>
+const V={
+emp:{"¿A quién envío una orden mayor a $50,000?":["Pasa por Laura Méndez (Finanzas) y luego Dirección, unos 2 días hábiles. Marcos siempre adjuntaba 3 cotizaciones. Con eso la aprobaban más rápido.","Basado en 212 órdenes · conocimiento explícito y tácito"],
+"¿Qué le prometió Marcos a FríoExpress?":["El 12 de agosto le confirmó por WhatsApp un volumen mínimo de 40 entregas al mes a cambio de 6% de descuento. Está pendiente renovar en noviembre.","Fuente: WhatsApp de trabajo y correo del 14 ago"],
+"Necesito un contacto de transporte refrigerado":["FríoExpress, con Roberto Salinas, es el más usado en Monterrey. Puedo redactar tu correo de presentación con el formato de la empresa.","Fuente: ficha de proveedores · 14 entregas"],
+"Tengo una idea para mejorar":["Cuéntamela y la comparo con las 8 ideas registradas en Compras. Si es nueva, la envío a tu jefe con un resumen profesional.","Tu idea se guarda en el historial de la empresa"]},
+jefe:{"¿En qué estado está Bodega Apodaca?":["Va al 68%. La obra civil terminó el 19 de septiembre. Lo que frena el proyecto es el permiso eléctrico: Ana lo pidió el 22 y sigue sin respuesta. Si no llega antes del 5 de octubre, la apertura se movería una semana.","Fuente: 14 correos, 6 mensajes de WhatsApp y la reunión del lunes"],
+"¿Por qué está en riesgo el cambio de empaque?":["Luis no ha recibido muestras del proveedor nuevo desde hace 12 días y el proveedor actual avisó que dejará de surtir el 31 de octubre. Nadie ha definido un plan alterno.","Fuente: correos de Luis Garza y hoja de seguimiento en Drive"],
+"Resumen de la semana de Compras":["Se cerraron 31 órdenes. Finanzas tardó 3 días en promedio en aprobar. Hubo un retraso con FríoExpress y Ana ya lo resolvió. Queda pendiente renovar el contrato en noviembre.","Fuente: órdenes, correos y WhatsApp de la semana"]}};
+const NAV={emp:[["asist","Mi asistente"],["conex","Mis conexiones"],["conoc","Conocimiento del puesto"]],jefe:[["panel","Panel"],["agente","Pregúntale a iluu"]]};
+const ME={emp:'<b>Ana López</b>Analista de compras<br><span class="tag">Empleado 3.1</span>',jefe:'<b>Carlos Treviño</b>Director de operaciones<br><span class="tag">Vista jefe</span>'};
+const nav=document.getElementById('nav');
+function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));nav.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.v===id))}
+function role(r){document.querySelectorAll('.roles button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.r===r));
+nav.innerHTML='';NAV[r].forEach(([id,t])=>{const b=document.createElement('button');b.textContent=t;b.dataset.v=id;b.setAttribute('role','tab');b.onclick=()=>show(id);nav.appendChild(b)});
+document.getElementById('me').innerHTML=ME[r];show(NAV[r][0][0])}
+document.querySelectorAll('.roles button').forEach(b=>b.onclick=()=>role(b.dataset.r));
+document.querySelectorAll('.chat').forEach(c=>{
+const log=c.querySelector('.log'),inp=c.querySelector('input'),set=V[c.querySelector('.chips').dataset.set];
+function add(t,k,s){const d=document.createElement('div');d.className='m '+k;d.textContent=t;if(s){const m=document.createElement('small');m.textContent=s;d.appendChild(m)}log.appendChild(d);log.scrollTop=log.scrollHeight}
+function ask(t){if(!t.trim())return;add(t,'u');const r=set[t]||["Encontré información parcial. Te sugiero confirmarlo con la persona responsable. Guardé tu pregunta para que iluu aprenda la respuesta.","Sin coincidencias exactas"];setTimeout(()=>add(r[0],'a',r[1]),450)}
+c.querySelectorAll('.chip').forEach(b=>b.onclick=()=>ask(b.textContent));
+c.querySelector('.send').onclick=()=>{ask(inp.value);inp.value=''};
+inp.onkeydown=e=>{if(e.key==='Enter'){ask(inp.value);inp.value=''}}});
+role('emp');
+</script>
+</body>
+</html>
