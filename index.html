@@ -23,32 +23,36 @@ aside{padding:22px 16px;border-right:1px solid var(--line)}
 nav button{display:block;width:100%;text-align:left;background:none;border:0;color:var(--ink);padding:10px 12px;border-radius:8px;font:inherit;cursor:pointer;margin-bottom:2px}
 nav button[aria-selected="true"]{background:var(--brand-2);color:var(--brand);font-weight:600}
 button:focus-visible,input:focus-visible{outline:2px solid var(--amb);outline-offset:2px}
-.me{margin-top:22px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-size:13px}
+.fw{margin-top:18px;font-size:12px;color:var(--mute);letter-spacing:.04em}
+.me{margin-top:14px;padding:12px;border:1px solid var(--line);border-radius:10px;background:var(--panel);font-size:13px}
 .me b{display:block;font-size:14px}
 .tag{display:inline-block;background:var(--amb-2);color:var(--amb-t);border-radius:5px;padding:1px 7px;font-size:12px;margin-top:4px}
 main{padding:26px 28px;min-width:0}
 .top{display:flex;justify-content:space-between;align-items:baseline;flex-wrap:wrap;gap:8px;margin-bottom:18px}
 .top p{margin:0;color:var(--mute)}
 .view{display:none}.view.on{display:block}
-.chat{background:var(--panel);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;height:min(580px,72vh)}
+.chat{background:var(--panel);border:1px solid var(--line);border-radius:14px;display:flex;flex-direction:column;height:min(600px,74vh)}
 .log{flex:1;overflow-y:auto;padding:18px;display:flex;flex-direction:column;gap:12px}
-.m{max-width:82%;padding:10px 14px;border-radius:14px}
+.m{max-width:86%;padding:10px 14px;border-radius:14px}
 .u{align-self:flex-end;background:var(--brand);color:var(--on);border-bottom-right-radius:4px}
 .a{align-self:flex-start;background:var(--brand-2);border-bottom-left-radius:4px}
-.a small{display:block;color:var(--mute);margin-top:6px;font-size:12px}
+.a small{display:block;color:var(--mute);margin-top:8px;font-size:12px}
+.a dl{margin:8px 0 0;display:grid;grid-template-columns:96px 1fr;gap:6px 10px;font-size:14px}
+.a dt{color:var(--brand);font-weight:600}.a dd{margin:0}
+.act{margin-top:10px;background:var(--amb);color:#2A1C00;border:0;border-radius:8px;padding:7px 12px;font:inherit;font-weight:600;font-size:13px;cursor:pointer}
 .chips{display:flex;flex-wrap:wrap;gap:8px;padding:0 18px 10px}
 .chip{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:20px;padding:6px 12px;font:inherit;font-size:13px;cursor:pointer}
 .chip:hover{border-color:var(--brand)}
 .in{display:flex;gap:8px;padding:12px;border-top:1px solid var(--line)}
 .in input{flex:1;padding:10px 12px;border:1px solid var(--line);border-radius:8px;background:var(--bg);color:var(--ink);font:inherit}
 .send{background:var(--amb);color:#2A1C00;border:0;border-radius:8px;padding:0 18px;font:inherit;font-weight:600;cursor:pointer}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .card{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:16px}
 .card h3{font-size:17px;margin-bottom:4px}
 .card p{margin:4px 0 10px;color:var(--mute);font-size:14px}
+.big{font-family:"Fraunces",Georgia,serif;font-size:38px;color:var(--brand);line-height:1}
 .bar{height:6px;background:var(--line);border-radius:4px;overflow:hidden}
 .bar i{display:block;height:100%;background:var(--brand)}
-.big{font-family:"Fraunces",Georgia,serif;font-size:38px;color:var(--brand);line-height:1}
 .row{display:flex;align-items:center;gap:12px;padding:12px 0;border-top:1px solid var(--line)}
 .row:first-of-type{border-top:0}
 .row div{flex:1;min-width:0}.row b{display:block}.row span{color:var(--mute);font-size:13px}
@@ -58,144 +62,137 @@ main{padding:26px 28px;min-width:0}
 .sw i:after{content:"";position:absolute;left:3px;top:3px;width:16px;height:16px;border-radius:50%;background:#fff;transition:.2s}
 .sw input:checked+i{background:var(--ok)}.sw input:checked+i:after{left:21px}
 .two{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-.li{padding:9px 0;border-top:1px solid var(--line);font-size:14px}.li:first-of-type{border-top:0}
-.li em{font-style:normal;color:var(--mute);font-size:12px;display:block}
-.pill{display:inline-block;border-radius:10px;padding:1px 9px;font-size:12px;font-weight:600}
-.p-ok{background:#DDF0E4;color:#1C6B40}.p-w{background:var(--amb-2);color:var(--amb-t)}.p-b{background:#F6DCD8;color:#9A2F24}
+.pill{display:inline-block;border-radius:10px;padding:1px 9px;font-size:12px;font-weight:600;white-space:nowrap}
+.p-ok{background:#DDF0E4;color:#1C6B40}.p-w{background:var(--amb-2);color:var(--amb-t)}
 .tbl{width:100%;border-collapse:collapse;font-size:14px}
-.tbl td,.tbl th{text-align:left;padding:10px 8px;border-top:1px solid var(--line);vertical-align:middle}
+.tbl td,.tbl th{text-align:left;padding:10px 8px;border-top:1px solid var(--line);vertical-align:top}
 .tbl th{border-top:0;color:var(--mute);font-weight:500;font-size:12px}
 .scroll{overflow-x:auto}
 .note{font-size:13px;color:var(--mute);margin-top:12px}
-@media (max-width:760px){.app{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);padding:14px}nav{display:flex;gap:4px;overflow-x:auto}nav button{white-space:nowrap;width:auto}.me{display:none}main{padding:18px 14px}.two{grid-template-columns:1fr}.m{max-width:94%}}
+.safe{background:var(--brand-2);border-radius:10px;padding:12px 14px;font-size:14px;margin-bottom:14px}
+.btn{border:1px solid var(--line);background:var(--panel);color:var(--ink);border-radius:6px;padding:3px 10px;font:inherit;font-size:12px;cursor:pointer;margin-left:4px}
+@media (max-width:760px){.app{grid-template-columns:1fr}aside{border-right:0;border-bottom:1px solid var(--line);padding:14px}nav{display:flex;gap:4px;overflow-x:auto}nav button{white-space:nowrap;width:auto}.me,.fw{display:none}main{padding:18px 14px}.two{grid-template-columns:1fr}.m{max-width:95%}.a dl{grid-template-columns:1fr}}
 </style>
 </head>
 <body>
 <div class="app">
 <aside>
   <div class="logo">iluu</div>
-  <div class="co">Distribuidora Norte</div>
-  <div class="roles"><button data-r="emp" aria-pressed="true">Empleado</button><button data-r="jefe" aria-pressed="false">Jefe</button></div>
+  <div class="co">Empresa demo · PyME</div>
+  <div class="roles"><button data-r="emp" aria-pressed="true">Empleado</button><button data-r="jefe" aria-pressed="false">Dirección</button></div>
   <nav id="nav"></nav>
+  <div class="fw">CAPTURA · ENTIENDE · ACTÚA</div>
   <div class="me" id="me"></div>
 </aside>
 <main>
 
-<!-- EMPLEADO -->
 <section class="view" id="asist">
-  <div class="top"><h1>Hola, Ana</h1><p>Tu asistente conoce cómo se trabaja en este puesto.</p></div>
+  <div class="top"><h1>Pregúntale a iluu</h1><p>Responde con el contexto real de tu empresa.</p></div>
   <div class="chat">
-    <div class="log"><div class="m a">Hola Ana, aprendí de 4 años de correos, WhatsApp de trabajo, reuniones y documentos de este puesto. ¿En qué te ayudo?</div></div>
+    <div class="log"><div class="m a">Hola Ana. No solo busco documentos: reconstruyo qué pasó, por qué se decidió y qué aprendió la empresa. Prueba con una pregunta.</div></div>
     <div class="chips" data-set="emp">
-      <button class="chip">¿A quién envío una orden mayor a $50,000?</button>
-      <button class="chip">¿Qué le prometió Marcos a FríoExpress?</button>
-      <button class="chip">Necesito un contacto de transporte refrigerado</button>
-      <button class="chip">Tengo una idea para mejorar</button>
+      <button class="chip">¿Por qué dejamos de trabajar con el Proveedor X?</button>
+      <button class="chip">¿Qué debemos considerar si evaluamos un nuevo proveedor?</button>
+      <button class="chip">¿Cómo se aprueba una orden mayor a $50,000?</button>
     </div>
     <div class="in"><input placeholder="Escribe tu pregunta…" aria-label="Pregunta"><button class="send">Enviar</button></div>
   </div>
 </section>
 
-<section class="view" id="conex">
-  <div class="top"><h1>Mis conexiones</h1><p>Tú decides qué se conecta. Solo se usa información de trabajo.</p></div>
-  <div class="card" style="margin-bottom:14px">
-    <div class="row"><div><b>Gmail</b><span>Correos laborales · sincronizado hace 2 min</span></div><label class="sw"><input type="checkbox" checked aria-label="Gmail"><i></i></label></div>
-    <div class="row"><div><b>Google Calendar</b><span>Reuniones y participantes</span></div><label class="sw"><input type="checkbox" checked aria-label="Calendar"><i></i></label></div>
-    <div class="row"><div><b>Google Drive</b><span>Documentos, hojas y presentaciones del equipo</span></div><label class="sw"><input type="checkbox" checked aria-label="Drive"><i></i></label></div>
-    <div class="row"><div><b>WhatsApp de trabajo</b><span>Solo chats con proveedores y equipo · sin chats personales</span></div><label class="sw"><input type="checkbox" checked aria-label="WhatsApp"><i></i></label></div>
-    <div class="row"><div><b>Outlook y Slack</b><span>Disponibles para conectar</span></div><label class="sw"><input type="checkbox" aria-label="Outlook y Slack"><i></i></label></div>
-  </div>
+<section class="view" id="fuentes">
+  <div class="top"><h1>Fuentes autorizadas</h1><p>La empresa decide qué se conecta. Tú puedes verlo todo aquí.</p></div>
+  <div class="safe"><b>Lo que iluu no hace:</b> no lee tu WhatsApp personal, no toma capturas de tu pantalla, no mide cuánto trabajas ni evalúa tu desempeño. Solo preserva conocimiento de fuentes de trabajo autorizadas.</div>
   <div class="card">
-    <h3>iluu para escritorio</h3>
-    <p>Una app pequeña siempre abierta en tu computadora. Registra qué programas, documentos y sistemas usas para entender cómo haces tu trabajo realmente. Puedes pausarla cuando quieras.</p>
-    <div class="row" style="border:0;padding-bottom:0"><div><b>Activa · Windows</b><span>Última captura hace 1 min · 38 flujos detectados esta semana</span></div><label class="sw"><input type="checkbox" checked aria-label="App de escritorio"><i></i></label></div>
+    <div class="row"><div><b>Gmail · buzón de trabajo</b><span>Solo hilos de proyectos y proveedores</span></div><label class="sw"><input type="checkbox" checked aria-label="Gmail"><i></i></label></div>
+    <div class="row"><div><b>Google Drive · carpetas seleccionadas</b><span>Compras, Operaciones y Contratos</span></div><label class="sw"><input type="checkbox" checked aria-label="Drive"><i></i></label></div>
+    <div class="row"><div><b>Google Calendar</b><span>Reuniones de trabajo y notas</span></div><label class="sw"><input type="checkbox" checked aria-label="Calendar"><i></i></label></div>
+    <div class="row"><div><b>WhatsApp Business (Cloud API)</b><span>Solo la línea de la empresa · chats personales excluidos</span></div><label class="sw"><input type="checkbox" checked aria-label="WhatsApp Business"><i></i></label></div>
+    <div class="row"><div><b>Slack, CRM, Jira</b><span>Disponibles para conectar</span></div><label class="sw"><input type="checkbox" aria-label="Otras fuentes"><i></i></label></div>
   </div>
 </section>
 
-<section class="view" id="conoc">
-  <div class="top"><h1>Conocimiento del puesto</h1><p>Lo que está escrito y lo que solo se sabe haciéndolo</p></div>
-  <div class="two">
-    <div class="card"><h3>Explícito</h3><p>Está documentado o se puede leer.</p>
-      <div class="li">Política de aprobación de compras<em>Drive · actualizada en 2025</em></div>
-      <div class="li">Contratos vigentes con 18 proveedores<em>Drive y Gmail</em></div>
-      <div class="li">Calendario de cierre de mes<em>Calendar</em></div>
-      <div class="li">Formato de orden de compra<em>Drive</em></div>
-    </div>
-    <div class="card"><h3>Tácito</h3><p>Nadie lo escribió. iluu lo dedujo de cómo trabajaba Marcos.</p>
-      <div class="li">Con FríoExpress se pide confirmación por WhatsApp un día antes, si no, se atrasa<em>Patrón en 14 entregas</em></div>
-      <div class="li">Finanzas aprueba más rápido si llega la comparativa de 3 cotizaciones<em>Patrón en 60 órdenes</em></div>
-      <div class="li">En diciembre se adelantan pedidos 2 semanas<em>Visto en 3 años seguidos</em></div>
-      <div class="li">Laura responde mejor antes de las 11:00<em>Historial de correos</em></div>
-    </div>
+<section class="view" id="memoria">
+  <div class="top"><h1>Memoria de la empresa</h1><p>Decisiones con contexto, razón, resultado y aprendizaje</p></div>
+  <div class="card scroll" style="margin-bottom:14px"><h3 style="margin-bottom:6px">Registros de decisiones</h3>
+    <table class="tbl"><tr><th>Decisión</th><th>Aprendizaje</th><th>Estado</th></tr>
+      <tr><td>Cambiar de Proveedor X a Proveedor Y</td><td>Priorizar capacidad logística sobre precio</td><td><span class="pill p-ok">Vigente</span></td></tr>
+      <tr><td>Pedir 3 cotizaciones arriba de $50,000</td><td>Finanzas aprueba más rápido con comparativa</td><td><span class="pill p-ok">Vigente</span></td></tr>
+      <tr><td>Adelantar pedidos 2 semanas en diciembre</td><td>Evita quiebres en temporada alta</td><td><span class="pill p-w">Por revisar</span></td></tr>
+    </table>
+    <p class="note">La memoria es temporal: iluu distingue lo que “era cierto” de lo que “sigue siendo cierto”.</p>
   </div>
-  <p class="note">Cada dato tácito indica de dónde salió y Ana puede confirmarlo o corregirlo.</p>
+  <div class="card"><h3>Conocimiento tácito detectado</h3><p>Nadie lo escribió. iluu lo dedujo y tú decides si es correcto.</p>
+    <div class="row"><div><b>Con el Proveedor Y se confirma por WhatsApp un día antes</b><span>Patrón en 14 entregas</span></div><span class="st"><button class="btn">Confirmar</button><button class="btn">Corregir</button></span></div>
+    <div class="row"><div><b>Si un cliente pide “solo una excepción”, casi siempre hay otro problema de fondo</b><span>Patrón en 6 casos</span></div><span class="st"><button class="btn">Confirmar</button><button class="btn">Corregir</button></span></div>
+  </div>
 </section>
 
-<!-- JEFE -->
-<section class="view" id="panel">
-  <div class="top"><h1>Panel de la empresa</h1><p>Actualizado hoy 9:12</p></div>
+<section class="view" id="capac">
+  <div class="top"><h1>Capacidad de la empresa</h1><p>Qué tanto de lo que la empresa sabe ya no depende de una sola persona</p></div>
   <div class="grid" style="margin-bottom:14px">
-    <div class="card"><div class="big">7</div><p>proyectos activos</p></div>
-    <div class="card"><div class="big" style="color:var(--bad)">2</div><p>proyectos en riesgo por retrasos o falta de respuesta</p></div>
-    <div class="card"><div class="big">78%</div><p>del conocimiento clave está documentado</p></div>
-    <div class="card"><div class="big" style="color:var(--amb-t)">3</div><p>personas con conocimiento que nadie más tiene</p></div>
+    <div class="card"><div class="big">64%</div><p>del conocimiento crítico recuperado</p></div>
+    <div class="card"><div class="big">38</div><p>decisiones registradas con razón y resultado</p></div>
+    <div class="card"><div class="big">3</div><p>áreas que dependen de una sola persona</p></div>
+    <div class="card"><div class="big">112</div><p>preguntas resueltas sin interrumpir a un compañero</p></div>
   </div>
-  <div class="card scroll" style="margin-bottom:14px"><h3 style="margin-bottom:6px">Proyectos</h3>
-    <table class="tbl"><tr><th>Proyecto</th><th>Responsable</th><th>Avance</th><th>Estado</th></tr>
-      <tr><td>Bodega Apodaca</td><td>Ana López</td><td style="min-width:110px"><div class="bar"><i style="width:68%"></i></div></td><td><span class="pill p-w">Atención</span></td></tr>
-      <tr><td>Cambio de proveedor de empaque</td><td>Luis Garza</td><td><div class="bar"><i style="width:35%"></i></div></td><td><span class="pill p-b">En riesgo</span></td></tr>
-      <tr><td>Renovación de flotilla</td><td>Sofía Ríos</td><td><div class="bar"><i style="width:90%"></i></div></td><td><span class="pill p-ok">En tiempo</span></td></tr>
-      <tr><td>Sistema de inventarios</td><td>Diego Cantú</td><td><div class="bar"><i style="width:52%"></i></div></td><td><span class="pill p-ok">En tiempo</span></td></tr>
+  <div class="two" style="margin-bottom:14px">
+    <div class="card"><h3>Dependencia por tema</h3><p>Cuántas personas pueden operar cada área.</p>
+      <div class="row"><div><b>Configuración de inventarios</b><span>1 persona</span></div><span class="pill p-w">Alta</span></div>
+      <div class="row"><div><b>Cobranza de cuentas grandes</b><span>1 persona</span></div><span class="pill p-w">Alta</span></div>
+      <div class="row"><div><b>Compras a proveedores</b><span>4 personas · documentado</span></div><span class="pill p-ok">Baja</span></div>
+    </div>
+    <div class="card"><h3>Lo que iluu aprendió esta semana</h3><p>Nuevos registros para la memoria.</p>
+      <div class="row"><div><b>Renegociación con transportista</b><span>Decisión, razón y resultado registrados</span></div></div>
+      <div class="row"><div><b>Proceso de devoluciones</b><span>Excepción nueva detectada</span></div></div>
+    </div>
+  </div>
+  <div class="card scroll"><h3 style="margin-bottom:6px">Agentes y sus límites</h3>
+    <table class="tbl"><tr><th>Agente</th><th>Puede decidir</th><th>Puede ejecutar</th><th>Escala a una persona</th></tr>
+      <tr><td>Compras</td><td>Qué cotizaciones comparar</td><td>Redactar correos, preparar comparativas</td><td>Cualquier orden mayor a $50,000</td></tr>
+      <tr><td>Onboarding</td><td>Qué explicar primero</td><td>Responder dudas del puesto</td><td>Accesos y temas de RH</td></tr>
     </table>
   </div>
-  <div class="two">
-    <div class="card"><h3>Riesgo de conocimiento</h3><p>Si estas personas se van, se pierde esto:</p>
-      <div class="li">Diego Cantú<em>Único que sabe configurar el sistema de inventarios</em></div>
-      <div class="li">Sofía Ríos<em>Relación directa con 5 proveedores de flotilla</em></div>
-    </div>
-    <div class="card"><h3>Lo que iluu detectó esta semana</h3><p>Ideas sacadas de la actividad real.</p>
-      <div class="li">4 empleados capturan las mismas órdenes a mano<em>Se puede automatizar · ahorro estimado 9 h/semana</em></div>
-      <div class="li">Las aprobaciones de Finanzas tardan 3 días en promedio<em>Cuello de botella en Compras</em></div>
-    </div>
-  </div>
 </section>
 
-<section class="view" id="agente">
-  <div class="top"><h1>Pregúntale a iluu</h1><p>Responde con correos, WhatsApp, reuniones y documentos.</p></div>
+<section class="view" id="pregunta">
+  <div class="top"><h1>Pregúntale a iluu</h1><p>Recordar. Razonar. Actuar.</p></div>
   <div class="chat">
-    <div class="log"><div class="m a">Hola. Pregúntame por cualquier proyecto, persona o proceso y te explico con lo que hay en la empresa.</div></div>
+    <div class="log"><div class="m a">Hola. Pregúntame por decisiones pasadas, procesos o qué tanto depende la empresa de personas clave.</div></div>
     <div class="chips" data-set="jefe">
-      <button class="chip">¿En qué estado está Bodega Apodaca?</button>
-      <button class="chip">¿Por qué está en riesgo el cambio de empaque?</button>
-      <button class="chip">Resumen de la semana de Compras</button>
+      <button class="chip">¿Por qué dejamos de trabajar con el Proveedor X?</button>
+      <button class="chip">¿Qué tan dependiente es la empresa de personas clave?</button>
     </div>
-    <div class="in"><input placeholder="Pregunta por un proyecto…" aria-label="Pregunta"><button class="send">Enviar</button></div>
+    <div class="in"><input placeholder="Pregunta por una decisión o proceso…" aria-label="Pregunta"><button class="send">Enviar</button></div>
   </div>
 </section>
 
 </main>
 </div>
 <script>
+const PX=["Reconstruí la historia de esta decisión:",[["Contexto","Retrasos recurrentes durante tres meses, ligados a un cambio en su sistema de distribución."],["Opciones","Continuar, renegociar o cambiar de proveedor."],["Decisión","Cambiar al Proveedor Y."],["Razón","El costo de las interrupciones superaba la diferencia de precio."],["Resultado","Bajaron los retrasos."],["Aprendizaje","En esta categoría, priorizar capacidad logística sobre precio."]],"Reconstruido de 9 correos, 1 reunión y 1 hoja en Drive · Vigente"];
 const V={
-emp:{"¿A quién envío una orden mayor a $50,000?":["Pasa por Laura Méndez (Finanzas) y luego Dirección, unos 2 días hábiles. Marcos siempre adjuntaba 3 cotizaciones. Con eso la aprobaban más rápido.","Basado en 212 órdenes · conocimiento explícito y tácito"],
-"¿Qué le prometió Marcos a FríoExpress?":["El 12 de agosto le confirmó por WhatsApp un volumen mínimo de 40 entregas al mes a cambio de 6% de descuento. Está pendiente renovar en noviembre.","Fuente: WhatsApp de trabajo y correo del 14 ago"],
-"Necesito un contacto de transporte refrigerado":["FríoExpress, con Roberto Salinas, es el más usado en Monterrey. Puedo redactar tu correo de presentación con el formato de la empresa.","Fuente: ficha de proveedores · 14 entregas"],
-"Tengo una idea para mejorar":["Cuéntamela y la comparo con las 8 ideas registradas en Compras. Si es nueva, la envío a tu jefe con un resumen profesional.","Tu idea se guarda en el historial de la empresa"]},
-jefe:{"¿En qué estado está Bodega Apodaca?":["Va al 68%. La obra civil terminó el 19 de septiembre. Lo que frena el proyecto es el permiso eléctrico: Ana lo pidió el 22 y sigue sin respuesta. Si no llega antes del 5 de octubre, la apertura se movería una semana.","Fuente: 14 correos, 6 mensajes de WhatsApp y la reunión del lunes"],
-"¿Por qué está en riesgo el cambio de empaque?":["Luis no ha recibido muestras del proveedor nuevo desde hace 12 días y el proveedor actual avisó que dejará de surtir el 31 de octubre. Nadie ha definido un plan alterno.","Fuente: correos de Luis Garza y hoja de seguimiento en Drive"],
-"Resumen de la semana de Compras":["Se cerraron 31 órdenes. Finanzas tardó 3 días en promedio en aprobar. Hubo un retraso con FríoExpress y Ana ya lo resolvió. Queda pendiente renovar el contrato en noviembre.","Fuente: órdenes, correos y WhatsApp de la semana"]}};
-const NAV={emp:[["asist","Mi asistente"],["conex","Mis conexiones"],["conoc","Conocimiento del puesto"]],jefe:[["panel","Panel"],["agente","Pregúntale a iluu"]]};
-const ME={emp:'<b>Ana López</b>Analista de compras<br><span class="tag">Empleado 3.1</span>',jefe:'<b>Carlos Treviño</b>Director de operaciones<br><span class="tag">Vista jefe</span>'};
+emp:{"¿Por qué dejamos de trabajar con el Proveedor X?":PX,
+"¿Qué debemos considerar si evaluamos un nuevo proveedor?":["Usando lo aprendido con el Proveedor X, te sugiero pedir capacidad logística y tiempos reales antes de comparar precios, más referencias de entrega. Preparé la lista de criterios y un borrador de correo para 3 candidatos.",null,"Basado en 1 decision registrada · Puedo preparar, pero enviar requiere aprobación",["Enviar borrador a Laura para aprobación","Listo. Se envió a Laura para su revisión y quedó registrado en la memoria."]],
+"¿Cómo se aprueba una orden mayor a $50,000?":["Pasa por Laura Méndez (Finanzas) y luego Dirección, unos 2 días hábiles. Conviene adjuntar 3 cotizaciones porque acelera la aprobación.",null,"Basado en 212 órdenes · conocimiento explícito y tácito"]},
+jefe:{"¿Por qué dejamos de trabajar con el Proveedor X?":PX,
+"¿Qué tan dependiente es la empresa de personas clave?":["Tres áreas dependen de una sola persona: configuración de inventarios, cobranza de cuentas grandes y la relación con el transportista refrigerado. Recomiendo empezar por inventarios: hoy solo se resuelve preguntándole a esa persona.",null,"Basado en quién resuelve cada tipo de consulta · sin medir desempeño individual",["Crear plan de captura para inventarios","Listo. Se pidió a los responsables una sesión guiada, sujeta a su aprobación."]]}};
+const NAV={emp:[["asist","Pregúntale a iluu"],["fuentes","Fuentes autorizadas"],["memoria","Memoria de la empresa"]],jefe:[["capac","Capacidad de la empresa"],["pregunta","Pregúntale a iluu"]]};
+const ME={emp:'<b>Ana López</b>Analista de compras<br><span class="tag">Empleado 3.1</span>',jefe:'<b>Carlos Treviño</b>Dirección<br><span class="tag">Vista dirección</span>'};
 const nav=document.getElementById('nav');
 function show(id){document.querySelectorAll('.view').forEach(v=>v.classList.toggle('on',v.id===id));nav.querySelectorAll('button').forEach(b=>b.setAttribute('aria-selected',b.dataset.v===id))}
 function role(r){document.querySelectorAll('.roles button').forEach(b=>b.setAttribute('aria-pressed',b.dataset.r===r));
 nav.innerHTML='';NAV[r].forEach(([id,t])=>{const b=document.createElement('button');b.textContent=t;b.dataset.v=id;b.setAttribute('role','tab');b.onclick=()=>show(id);nav.appendChild(b)});
 document.getElementById('me').innerHTML=ME[r];show(NAV[r][0][0])}
 document.querySelectorAll('.roles button').forEach(b=>b.onclick=()=>role(b.dataset.r));
+document.querySelectorAll('.st').forEach(s=>s.querySelectorAll('.btn').forEach(b=>b.onclick=()=>{s.innerHTML='<span class="pill p-ok">'+(b.textContent==='Confirmar'?'Confirmado':'Marcado para corregir')+'</span>'}));
 document.querySelectorAll('.chat').forEach(c=>{
 const log=c.querySelector('.log'),inp=c.querySelector('input'),set=V[c.querySelector('.chips').dataset.set];
-function add(t,k,s){const d=document.createElement('div');d.className='m '+k;d.textContent=t;if(s){const m=document.createElement('small');m.textContent=s;d.appendChild(m)}log.appendChild(d);log.scrollTop=log.scrollHeight}
-function ask(t){if(!t.trim())return;add(t,'u');const r=set[t]||["Encontré información parcial. Te sugiero confirmarlo con la persona responsable. Guardé tu pregunta para que iluu aprenda la respuesta.","Sin coincidencias exactas"];setTimeout(()=>add(r[0],'a',r[1]),450)}
+function add(t,k,rows,s,act){const d=document.createElement('div');d.className='m '+k;d.appendChild(document.createTextNode(t));
+if(rows){const dl=document.createElement('dl');rows.forEach(([a,b])=>{const x=document.createElement('dt');x.textContent=a;const y=document.createElement('dd');y.textContent=b;dl.append(x,y)});d.appendChild(dl)}
+if(s){const m=document.createElement('small');m.textContent=s;d.appendChild(m)}
+if(act){const b=document.createElement('button');b.className='act';b.textContent=act[0];b.onclick=()=>{b.remove();setTimeout(()=>add(act[1],'a'),300)};d.appendChild(b)}
+log.appendChild(d);log.scrollTop=log.scrollHeight}
+function ask(t){if(!t.trim())return;add(t,'u');const r=set[t]||["Encontré información parcial y no quiero inventar contexto. Guardé tu pregunta para que la persona responsable complete ese registro.",null,"Sin registro suficiente"];setTimeout(()=>add(r[0],'a',r[1],r[2],r[3]),450)}
 c.querySelectorAll('.chip').forEach(b=>b.onclick=()=>ask(b.textContent));
 c.querySelector('.send').onclick=()=>{ask(inp.value);inp.value=''};
 inp.onkeydown=e=>{if(e.key==='Enter'){ask(inp.value);inp.value=''}}});
